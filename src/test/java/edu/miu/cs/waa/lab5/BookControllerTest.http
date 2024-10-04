@@ -1,0 +1,35 @@
+### Fetch a book by ID with versioning via Accept header
+GET http://localhost:8080/books/2
+X-API-VERSION: 1
+
+### Fetch all books with versioning via custom header
+GET http://localhost:8080/books
+Accept: application/cs.miu.edu-v1+json
+
+
+### Add a new book with versioning via header for version 2
+POST http://localhost:8080/books
+X-API-VERSION: 2
+Content-Type: application/json
+
+{
+  "title": "Software Engineering",
+  "isbn": 876587659,
+  "price": 58.0
+}
+
+### Update a book by ID
+PUT http://localhost:8080/books/1
+X-API-VERSION: 1
+Content-Type: application/json
+
+{
+  "id": 6,
+  "title": "Updated Title",
+  "isbn": 987654321,
+  "price": 45.0
+}
+
+### Delete a book by ID with Accept header for version 3
+DELETE http://localhost:8080/books/1
+X-API-VERSION:3
